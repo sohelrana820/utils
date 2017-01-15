@@ -1,0 +1,27 @@
+{
+    "name": "sohelrana820/utils",
+    "description": "PHP Utility Library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "sohelrana820",
+            "email": "me.sohelrana@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.5.9"
+    },
+    "require-dev": {
+        "phpunit/phpunit": ">=4.8 < 6.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Utils\\SohelRana820\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    }
+}
