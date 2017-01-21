@@ -12,6 +12,10 @@ class Utility
      * @param $zipFileName
      * @link https://gist.github.com/sohelrana820/95a37a475cf00580efe0347ee384152d
      * @link http://blog.sohelrana.me/create-download-zip-file-php/
+     *
+     * This function will create ZIP file and download.
+     * It's takes $files array, $files location (path), and ZIP file name
+     * as parameters and create ZIP file of these files and download
      */
     public static function createZipAndDownload($files, $filesPath, $zipFileName)
     {
@@ -35,5 +39,27 @@ class Utility
         header("Expires: 0");
         readfile("$zipFileName");
         exit;
+    }
+
+    /**
+     * @param $array
+     * @param $key
+     * @param $value
+     * @return array
+     *
+     * Search multidimensional array by key/value
+     */
+    public static function arrayKeyValueSearch($array, $key, $value)
+    {
+        $results = array();
+        if (is_array($array)) {
+            if (isset($array[$key]) && $array[$key] == $value) {
+                $results[] = $array;
+            }
+            foreach ($array as $subArray) {
+                $results = array_merge($results, self::arrayKeyValueSearch($subArray, $key, $value));
+            }
+        }
+        return $results;
     }
 }
